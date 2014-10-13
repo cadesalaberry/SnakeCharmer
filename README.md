@@ -7,7 +7,9 @@ Note that snakes cannot move into occupied grid cells, and that snakes are alway
 
 The program is called Snakes, and takes four arguments:
 
-java Snakes p n m t
+```bash
+$ java Snakes p n m t
+```
 
 Create `1 ≤ p < m` snakes of length `1 ≤ n < m` in an `m × m` grid, assuming `m > 10`. Each snake moves every `t`ms, for `t > 0`, and keeps track of how many successful movements it made. The simulation should end after approximately `1`min, or when no snake can move, at which point snakes should stop (if any can move) and you should print out how many total movements were made by each snake.
 
@@ -43,5 +45,5 @@ o . . . . . . . . . . . . . . . . . . o
 #2 did 17 moves.
 #3 did 256 moves.
 #4 did 21 moves.
-```bash
+```
 
