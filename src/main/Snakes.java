@@ -73,6 +73,7 @@ public class Snakes {
 				// Waits for the grid to be modified.
 				synchronized (mtGrid) {
 					mtGrid.wait(time);
+					System.out.print(mtGrid);
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -104,7 +105,7 @@ public class Snakes {
 		// Checks the number of snakes to spawn.
 		if (!(1 <= p && p < m)) {
 
-			System.err.println("Error: q should be between 1 and 4.");
+			System.err.println("Error: p should be between 1 and m.");
 			valid = false;
 		}
 

@@ -9,7 +9,7 @@ public class Snake implements Runnable {
 
 	private int size = 0;
 	private int heartbeat = 0;
-	
+
 	private List<Cell<Snake>> snake;
 	private MTGrid<Snake> mtGrid;
 
@@ -21,7 +21,8 @@ public class Snake implements Runnable {
 
 	private SecureRandom rand = new SecureRandom();
 
-	public Snake(MTGrid<Snake> mtGrid, Collection<Cell<Snake>> coll, int heartbeat) {
+	public Snake(MTGrid<Snake> mtGrid, Collection<Cell<Snake>> coll,
+			int heartbeat) {
 		this.snake = new ArrayList<>(coll);
 		this.heartbeat = heartbeat;
 		this.mtGrid = mtGrid;
@@ -39,7 +40,8 @@ public class Snake implements Runnable {
 	 * @param start
 	 * @param size
 	 */
-	public Snake(MTGrid<Snake> mtGrid, Cell<Snake> start, int size, int heartbeat) {
+	public Snake(MTGrid<Snake> mtGrid, Cell<Snake> start, int size,
+			int heartbeat) {
 		this.snake = new ArrayList<>();
 		this.heartbeat = heartbeat;
 		this.mtGrid = mtGrid;
@@ -100,15 +102,15 @@ public class Snake implements Runnable {
 		if (snake.size() >= this.size || this.size < 0)
 			// Gets the tail of the snake and takes it off the grid.
 			mtGrid.empty(snake.remove(snake.size() - 1));
-		
+
 		this.moveCount++;
 	}
 
 	@Override
 	public void run() {
-		
+
 		boolean run = true;
-		
+
 		while (run) {
 			this.safeRandomMove();
 			try {
@@ -127,8 +129,8 @@ public class Snake implements Runnable {
 		return this.snake.get(snake.size() - 1);
 	}
 
-	public int id() {
-		return this.id;
+	public String id() {
+		return Character.toString((char) (48 + this.id));
 	}
 
 	public String toString() {
