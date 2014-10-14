@@ -13,6 +13,11 @@ $ java Snakes p n m t
 
 Create `1 ≤ p < m` snakes of length `1 ≤ n < m` in an `m × m` grid, assuming `m > 10`. Each snake moves every `t`ms, for `t > 0`, and keeps track of how many successful movements it made. The simulation should end after approximately `1`min, or when no snake can move, at which point snakes should stop (if any can move) and you should print out how many total movements were made by each snake.
 
+# How it Works
+
+Each snake is controlled by a thread, thus moving independently. To avoid conflicts when travelling, I used the environnement (the grid) as a controller to decide what to do in case of conflict. When a snake moves, he locks the cell in which he will go to avoid anybody getting there before him. Once in the cell, he removes his tail from the cell it was in, making it available for another snake to move into.
+
+I found `n=7` to be the best size of snakes, for they cannot get stuck into themselves.
 
 # Sample Output
 
